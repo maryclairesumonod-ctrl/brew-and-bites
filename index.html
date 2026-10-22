@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brew & Bites — Artisan Coffee & Gourmet Food Ordering</title>
+    <meta name="description" content="Order handcrafted coffees, artisanal pastries, and gourmet sandwiches online at Brew & Bites. Fast pickup and express delivery in Metro Manila.">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ======================================================================
+         Header & Navigation
+         ====================================================================== -->
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="index.html" class="brand-logo" aria-label="Brew & Bites Home">
+                <div class="brand-icon">
+                    <i class="fas fa-mug-hot"></i>
+                </div>
+                <div class="brand-text">Brew & <span>Bites</span></div>
+            </a>
+
+            <nav class="nav-links" aria-label="Primary Navigation">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="menu.html" class="nav-link">Menu</a>
+                <a href="cart.html" class="nav-link">Shopping Cart</a>
+                <a href="#about-section" class="nav-link">Our Story</a>
+                <a href="#promotions-section" class="nav-link">Offers</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="cart.html" class="nav-cart-btn" aria-label="View Shopping Cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-badge" id="nav-cart-count">0</span>
+                </a>
+                <a href="menu.html" class="nav-order-btn">
+                    <span>Order Now</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="menu.html" class="nav-link">Menu Catalog</a>
+            <a href="cart.html" class="nav-link">Shopping Cart</a>
+            <a href="#about-section" class="nav-link">Our Story</a>
+            <a href="#promotions-section" class="nav-link">Special Promotions</a>
+            <a href="menu.html" class="btn btn-primary btn-block" style="margin-top: 0.5rem;">
+                <i class="fas fa-utensils"></i> Browse Full Menu
+            </a>
+        </nav>
+    </header>
+
+    <!-- ======================================================================
+         Hero Section
+         ====================================================================== -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-pill">
+                        <i class="fas fa-coffee"></i>
+                        <span>Handcrafted Coffee & Gourmet Delights</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Sip Pure Passion, Savor Every <span class="highlight">Fresh Bite.</span>
+                    </h1>
+                    <p class="hero-desc">
+                        From single-origin cold brews and velvety Spanish lattes to golden butter croissants and Angus truffle burgers. Sourced responsibly and prepared fresh daily for quick pickup or express delivery.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="menu.html" class="btn btn-primary" id="hero-browse-menu-btn">
+                            <i class="fas fa-utensils"></i> Browse Our Menu
+                        </a>
+                        <a href="#promotions-section" class="btn btn-secondary">
+                            <i class="fas fa-tag"></i> Today's Specials
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <h4>15k+</h4>
+                            <p>Happy Brew Lovers</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>100%</h4>
+                            <p>Artisan Arabica</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>25 Min</h4>
+                            <p>Average Express Delivery</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-media">
+                    <div class="hero-image-wrapper">
+                        <img src="assets/images/hero-coffee.jpg" alt="Barista pouring latte art at Brew & Bites" loading="eager">
+                    </div>
+                    <div class="floating-badge-card">
+                        <div class="floating-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="floating-text">
+                            <h5>Signature Spanish Latte</h5>
+                            <p>Rated 4.9 ★ by 140+ customers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         Features Bar
+         ====================================================================== -->
+    <section class="features-bar">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-icon-wrap">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div>
+                        <h4>Ethically Sourced</h4>
+                        <p>100% Arabica beans harvested from local high-altitude micro-lots.</p>
+                    </div>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon-wrap">
+                        <i class="fas fa-bread-slice"></i>
+                    </div>
+                    <div>
+                        <h4>Freshly Baked Daily</h4>
+                        <p>Artisanal pastries and brioche buns baked in-house every sunrise.</p>
+                    </div>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon-wrap">
+                        <i class="fas fa-motorcycle"></i>
+                    </div>
+                    <div>
+                        <h4>Swift Pickup & Delivery</h4>
+                        <p>Carefully packed temperature-controlled delivery across the city.</p>
+                    </div>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon-wrap">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div>
+                        <h4>Seamless Ordering</h4>
+                        <p>Smooth cart management, real-time totals, and live order tracking.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         Featured Products Section
+         ====================================================================== -->
+    <section class="section section-alt" id="featured-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Customer Favorites</span>
+                <h2 class="section-title">Most Loved Creations</h2>
+                <p class="section-desc">Experience our top-rated barista specialties, warm oven pastries, and savory gourmet sandwiches.</p>
+            </div>
+
+            <!-- Dynamically populated from products.js -->
+            <div class="products-grid" id="featured-products-grid">
+                <!-- Javascript will render cards here -->
+            </div>
+
+            <div style="text-align: center; margin-top: 3.5rem;">
+                <a href="menu.html" class="btn btn-secondary">
+                    <span>View All 16 Menu Items</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         Promotion / Special Offers Banner
+         ====================================================================== -->
+    <section class="promo-section" id="promotions-section">
+        <div class="container">
+            <div class="promo-card">
+                <div class="promo-content">
+                    <span class="promo-tag">Special Promo</span>
+                    <h2 class="promo-title">Enjoy 10% OFF Your Entire Order</h2>
+                    <p class="promo-desc">
+                        Indulge in your daily coffee ritual or satisfy lunch cravings with our chef-crafted burgers. Apply our welcome promo code during checkout.
+                    </p>
+                    <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                        <div class="promo-coupon-box">
+                            <span class="coupon-code">BREW10</span>
+                            <button type="button" class="copy-code-btn" onclick="copyPromoCode('BREW10')">
+                                <i class="far fa-copy"></i> Copy
+                            </button>
+                        </div>
+                        <a href="menu.html" class="btn btn-accent">
+                            <i class="fas fa-shopping-cart"></i> Order Now
+                        </a>
+                    </div>
+                </div>
+
+                <div class="promo-media-box">
+                    <img src="assets/images/promo-combo.jpg" alt="Coffee and pastry breakfast combo" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         Our Story / Brand Essence Section
+         ====================================================================== -->
+    <section class="section" id="about-section">
+        <div class="container">
+            <div class="hero-grid" style="align-items: center;">
+                <div class="hero-media">
+                    <div class="hero-image-wrapper">
+                        <img src="assets/images/about-beans.jpg" alt="Single-origin roasted coffee beans" loading="lazy">
+                    </div>
+                </div>
+
+                <div class="hero-content">
+                    <span class="section-subtitle">The Brew & Bites Philosophy</span>
+                    <h2 class="section-title">Crafted with Heart, Roasted to Excellence.</h2>
+                    <p class="hero-desc">
+                        Brew & Bites began with a simple passion: bridging the gap between world-class specialty coffee and exceptional café fare. We roast in small batches to preserve delicate aroma profiles and pair every cup with recipes made from scratch.
+                    </p>
+                    <ul style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2rem;">
+                        <li style="display: flex; align-items: center; gap: 0.75rem;">
+                            <i class="fas fa-check-circle" style="color: var(--color-accent-caramel);"></i>
+                            <strong>Direct Trade Coffee Beans</strong> — Supporting local growers in Benguet & Bukidnon.
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 0.75rem;">
+                            <i class="fas fa-check-circle" style="color: var(--color-accent-caramel);"></i>
+                            <strong>Pure European Butter</strong> — Flaky, fragrant pastry layers made without preservatives.
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 0.75rem;">
+                            <i class="fas fa-check-circle" style="color: var(--color-accent-caramel);"></i>
+                            <strong>Sustainable Packaging</strong> — 100% biodegradable cups, kraft boxes, and utensils.
+                        </li>
+                    </ul>
+                    <a href="menu.html" class="btn btn-primary">
+                        <i class="fas fa-utensils"></i> Taste the Difference
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         Customer Reviews & Community Love
+         ====================================================================== -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Real Reviews</span>
+                <h2 class="section-title">What Our Community Says</h2>
+                <p class="section-desc">Join thousands of happy coffee enthusiasts and foodies across the metro.</p>
+            </div>
+
+            <div class="products-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <div class="product-card" style="padding: 2rem;">
+                    <div style="color: var(--color-accent-gold); margin-bottom: 1rem; font-size: 1.1rem;">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p style="font-style: italic; color: var(--color-coffee-700); margin-bottom: 1.5rem; line-height: 1.6;">
+                        "The Spanish Latte is easily the smoothest I’ve had in Manila! Perfectly balanced sweetness without overpowering the deep espresso flavor. Arrived ice-cold!"
+                    </p>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-cream-300); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--color-coffee-900);">
+                            MC
+                        </div>
+                        <div>
+                            <h5 style="font-family: var(--font-heading); font-weight: 700; color: var(--color-coffee-900);">Maria Christine S.</h5>
+                            <span style="font-size: 0.8rem; color: var(--color-text-light);">Verified Customer • Makati</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" style="padding: 2rem;">
+                    <div style="color: var(--color-accent-gold); margin-bottom: 1rem; font-size: 1.1rem;">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p style="font-style: italic; color: var(--color-coffee-700); margin-bottom: 1.5rem; line-height: 1.6;">
+                        "The Truffle Burger and Basque Burnt Cheesecake are absolute must-tries! Super convenient online ordering system with instant checkout and zero hassle."
+                    </p>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-cream-300); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--color-coffee-900);">
+                            JD
+                        </div>
+                        <div>
+                            <h5 style="font-family: var(--font-heading); font-weight: 700; color: var(--color-coffee-900);">Joshua Diaz</h5>
+                            <span style="font-size: 0.8rem; color: var(--color-text-light);">Verified Customer • BGC</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" style="padding: 2rem;">
+                    <div style="color: var(--color-accent-gold); margin-bottom: 1rem; font-size: 1.1rem;">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p style="font-style: italic; color: var(--color-coffee-700); margin-bottom: 1.5rem; line-height: 1.6;">
+                        "The butter croissants are flaky and buttery just like in Paris. Plus their packaging keeps them crispy during delivery. 10/10 recommend!"
+                    </p>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--color-cream-300); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--color-coffee-900);">
+                            AR
+                        </div>
+                        <div>
+                            <h5 style="font-family: var(--font-heading); font-weight: 700; color: var(--color-coffee-900);">Alyssa Reyes</h5>
+                            <span style="font-size: 0.8rem; color: var(--color-text-light);">Verified Customer • Quezon City</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         Footer
+         ====================================================================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand-logo">
+                        <div class="brand-icon">
+                            <i class="fas fa-mug-hot"></i>
+                        </div>
+                        <div class="brand-text">Brew & <span>Bites</span></div>
+                    </a>
+                    <p class="footer-desc">
+                        Handcrafted specialty coffee, artisanal bakery treats, and hearty gourmet sandwiches. Elevating your everyday café experience.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="menu.html" class="footer-link">Full Menu</a></li>
+                        <li><a href="cart.html" class="footer-link">View Cart</a></li>
+                        <li><a href="#promotions-section" class="footer-link">Promotions & Codes</a></li>
+                        <li><a href="#about-section" class="footer-link">About Brew & Bites</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Store Hours</h4>
+                    <div class="hours-list">
+                        <div class="hours-row">
+                            <span class="day">Mon – Fri</span>
+                            <span class="time">6:30 AM – 9:00 PM</span>
+                        </div>
+                        <div class="hours-row">
+                            <span class="day">Saturday</span>
+                            <span class="time">7:00 AM – 10:00 PM</span>
+                        </div>
+                        <div class="hours-row">
+                            <span class="day">Sunday</span>
+                            <span class="time">7:00 AM – 8:30 PM</span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1.25rem; font-size: 0.88rem; color: var(--color-cream-300);">
+                        <i class="fas fa-map-marker-alt" style="color: var(--color-accent-caramel); margin-right: 0.4rem;"></i>
+                        Ayala Avenue, Makati City, Metro Manila
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Demo Disclaimer</h4>
+                    <p style="font-size: 0.85rem; line-height: 1.5; color: var(--color-cream-300); margin-bottom: 1rem;">
+                        Brew & Bites is an interactive front-end demo system. No actual credit card or real food orders will be charged.
+                    </p>
+                    <div class="demo-disclaimer-pill">
+                        <i class="fas fa-info-circle"></i> Front-End Demo System
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Brew & Bites — Online Food Ordering System. All rights reserved.</p>
+                <p>Built with HTML5, CSS3 & Vanilla JavaScript</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

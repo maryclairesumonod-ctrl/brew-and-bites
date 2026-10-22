@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Catalog — Brew & Bites</title>
+    <meta name="description" content="Explore the full Brew & Bites menu: artisan espresso, cold brew, Japanese matcha, freshly baked croissants, and Angus burgers.">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ======================================================================
+         Header & Navigation
+         ====================================================================== -->
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="index.html" class="brand-logo" aria-label="Brew & Bites Home">
+                <div class="brand-icon">
+                    <i class="fas fa-mug-hot"></i>
+                </div>
+                <div class="brand-text">Brew & <span>Bites</span></div>
+            </a>
+
+            <nav class="nav-links" aria-label="Primary Navigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="menu.html" class="nav-link active">Menu</a>
+                <a href="cart.html" class="nav-link">Shopping Cart</a>
+                <a href="index.html#about-section" class="nav-link">Our Story</a>
+                <a href="index.html#promotions-section" class="nav-link">Offers</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="cart.html" class="nav-cart-btn" aria-label="View Shopping Cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-badge" id="nav-cart-count">0</span>
+                </a>
+                <a href="cart.html" class="nav-order-btn">
+                    <span>View Cart</span>
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+                <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="menu.html" class="nav-link active">Menu Catalog</a>
+            <a href="cart.html" class="nav-link">Shopping Cart</a>
+            <a href="index.html#about-section" class="nav-link">Our Story</a>
+            <a href="index.html#promotions-section" class="nav-link">Special Promotions</a>
+        </nav>
+    </header>
+
+    <!-- ======================================================================
+         Menu Header & Filters Banner
+         ====================================================================== -->
+    <section class="menu-header-banner">
+        <div class="container">
+            <div style="text-align: center; max-width: 680px; margin: 0 auto;">
+                <span class="section-subtitle">Artisanal Selection</span>
+                <h1 class="section-title">Our Handcrafted Menu</h1>
+                <p class="section-desc">
+                    Every beverage is crafted with precision by certified baristas, and all food is made fresh to order using finest ingredients.
+                </p>
+            </div>
+
+            <!-- Controls: Search & Sort & Categories -->
+            <div class="menu-controls-wrapper">
+                <div class="search-and-sort">
+                    <div class="search-input-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="menu-search-input" placeholder="Search coffee, tea, pastries, burgers..." aria-label="Search menu products">
+                    </div>
+
+                    <div class="sort-select-box">
+                        <label for="menu-sort-select"><i class="fas fa-sort-amount-down"></i> Sort:</label>
+                        <select id="menu-sort-select" class="sort-select" aria-label="Sort products">
+                            <option value="featured">Featured / Best Sellers</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Highest Rated</option>
+                            <option value="name">Alphabetical (A-Z)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Category Filter Pills -->
+                <div class="category-filters" role="tablist" aria-label="Menu categories">
+                    <button type="button" class="filter-btn active" data-category="all" role="tab" aria-selected="true">
+                        <i class="fas fa-utensils"></i> All Items
+                    </button>
+                    <button type="button" class="filter-btn" data-category="coffee" role="tab" aria-selected="false">
+                        <i class="fas fa-coffee"></i> Coffee
+                    </button>
+                    <button type="button" class="filter-btn" data-category="tea" role="tab" aria-selected="false">
+                        <i class="fas fa-leaf"></i> Teas & Refreshers
+                    </button>
+                    <button type="button" class="filter-btn" data-category="pastries" role="tab" aria-selected="false">
+                        <i class="fas fa-bread-slice"></i> Pastries & Bakery
+                    </button>
+                    <button type="button" class="filter-btn" data-category="sandwiches" role="tab" aria-selected="false">
+                        <i class="fas fa-hamburger"></i> Burgers & Sandwiches
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         Menu Products Section
+         ====================================================================== -->
+    <main class="section">
+        <div class="container">
+            <div class="results-info-bar">
+                <span id="menu-items-count" style="font-weight: 600; color: var(--color-coffee-800);">Showing 16 items</span>
+                <span style="font-size: 0.85rem;"><i class="fas fa-shield-alt" style="color: var(--color-accent-caramel);"></i> Prepared fresh upon order</span>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid" id="menu-products-grid">
+                <!-- Javascript will render cards here dynamically -->
+            </div>
+
+            <!-- Empty State when filter or search returns nothing -->
+            <div class="empty-menu-state" id="menu-empty-state" style="display: none;">
+                <i class="fas fa-mug-hot"></i>
+                <h3>No Matching Items Found</h3>
+                <p>We couldn't find anything matching your search. Try different keywords or clear your filters.</p>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('menu-search-input').value=''; document.querySelector('.filter-btn[data-category=\'all\']').click();">
+                    Clear Search & Reset Filters
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- ======================================================================
+         Footer
+         ====================================================================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand-logo">
+                        <div class="brand-icon">
+                            <i class="fas fa-mug-hot"></i>
+                        </div>
+                        <div class="brand-text">Brew & <span>Bites</span></div>
+                    </a>
+                    <p class="footer-desc">
+                        Handcrafted specialty coffee, artisanal bakery treats, and hearty gourmet sandwiches. Elevating your everyday café experience.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="menu.html" class="footer-link">Full Menu</a></li>
+                        <li><a href="cart.html" class="footer-link">View Cart</a></li>
+                        <li><a href="index.html#promotions-section" class="footer-link">Promotions & Codes</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Store Hours</h4>
+                    <div class="hours-list">
+                        <div class="hours-row">
+                            <span class="day">Mon – Fri</span>
+                            <span class="time">6:30 AM – 9:00 PM</span>
+                        </div>
+                        <div class="hours-row">
+                            <span class="day">Saturday</span>
+                            <span class="time">7:00 AM – 10:00 PM</span>
+                        </div>
+                        <div class="hours-row">
+                            <span class="day">Sunday</span>
+                            <span class="time">7:00 AM – 8:30 PM</span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1.25rem; font-size: 0.88rem; color: var(--color-cream-300);">
+                        <i class="fas fa-map-marker-alt" style="color: var(--color-accent-caramel); margin-right: 0.4rem;"></i>
+                        Ayala Avenue, Makati City, Metro Manila
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Demo Disclaimer</h4>
+                    <p style="font-size: 0.85rem; line-height: 1.5; color: var(--color-cream-300); margin-bottom: 1rem;">
+                        Brew & Bites is an interactive front-end demo system. No actual credit card or real food orders will be charged.
+                    </p>
+                    <div class="demo-disclaimer-pill">
+                        <i class="fas fa-info-circle"></i> Front-End Demo System
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Brew & Bites — Online Food Ordering System. All rights reserved.</p>
+                <p>Built with HTML5, CSS3 & Vanilla JavaScript</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart — Brew & Bites</title>
+    <meta name="description" content="Review your Brew & Bites coffee and food order, update quantities, apply coupon codes, and proceed to checkout.">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ======================================================================
+         Header & Navigation
+         ====================================================================== -->
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="index.html" class="brand-logo" aria-label="Brew & Bites Home">
+                <div class="brand-icon">
+                    <i class="fas fa-mug-hot"></i>
+                </div>
+                <div class="brand-text">Brew & <span>Bites</span></div>
+            </a>
+
+            <nav class="nav-links" aria-label="Primary Navigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="menu.html" class="nav-link">Menu</a>
+                <a href="cart.html" class="nav-link active">Shopping Cart</a>
+                <a href="index.html#about-section" class="nav-link">Our Story</a>
+                <a href="index.html#promotions-section" class="nav-link">Offers</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="cart.html" class="nav-cart-btn" aria-label="View Shopping Cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-badge" id="nav-cart-count">0</span>
+                </a>
+                <a href="menu.html" class="nav-order-btn">
+                    <span>Add More</span>
+                    <i class="fas fa-plus"></i>
+                </a>
+                <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="menu.html" class="nav-link">Menu Catalog</a>
+            <a href="cart.html" class="nav-link active">Shopping Cart</a>
+            <a href="index.html#about-section" class="nav-link">Our Story</a>
+            <a href="index.html#promotions-section" class="nav-link">Special Promotions</a>
+        </nav>
+    </header>
+
+    <!-- ======================================================================
+         Main Cart Page Content
+         ====================================================================== -->
+    <main class="section">
+        <div class="container">
+            <div style="margin-bottom: 2rem;">
+                <span class="section-subtitle">Order Review</span>
+                <h1 class="section-title">Your Order Tray</h1>
+                <p class="section-desc">Review your selected items, modify quantities, and apply promo discounts.</p>
+            </div>
+
+            <!-- Empty Cart State (shown when cart is empty) -->
+            <div class="empty-cart-container" id="cart-empty-state" style="display: none;">
+                <div class="empty-cart-icon">
+                    <i class="fas fa-shopping-basket"></i>
+                </div>
+                <h3>Your Tray is Currently Empty</h3>
+                <p>Looks like you haven’t added any handcrafted coffees, fresh pastries, or savory bites yet.</p>
+                <a href="menu.html" class="btn btn-primary">
+                    <i class="fas fa-utensils"></i> Explore Our Menu
+                </a>
+            </div>
+
+            <!-- Cart Layout (shown when cart has items) -->
+            <div class="cart-layout" id="cart-layout-wrapper">
+                <!-- Left: Cart Items List -->
+                <div class="cart-items-card">
+                    <div class="cart-header-actions">
+                        <h2>Items in Your Tray</h2>
+                        <button type="button" class="clear-cart-btn" onclick="clearCart(true)">
+                            <i class="fas fa-trash-alt"></i> Clear All
+                        </button>
+                    </div>
+
+                    <!-- List of items rendered dynamically by cart.js -->
+                    <div id="cart-items-container"></div>
+
+                    <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                        <a href="menu.html" style="font-weight: 600; color: var(--color-coffee-700); display: inline-flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-arrow-left"></i> Continue Shopping
+                        </a>
+                        <span style="font-size: 0.85rem; color: var(--color-text-muted);">
+                            <i class="fas fa-check-circle" style="color: var(--color-success);"></i> Items saved in your browser
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Right: Summary Card -->
+                <aside class="summary-card">
+                    <h3 class="summary-title">Order Summary</h3>
+
+                    <!-- Promo Code Input Form -->
+                    <form id="coupon-form" class="promo-input-group">
+                        <input type="text" id="coupon-input" placeholder="Promo code (e.g. BREW10)" aria-label="Enter coupon code">
+                        <button type="submit" class="apply-coupon-btn">Apply</button>
+                    </form>
+                    <div id="coupon-message" class="coupon-applied-msg"></div>
+
+                    <div class="summary-rows">
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="summary-subtotal">₱0.00</span>
+                        </div>
+
+                        <div class="summary-row discount" id="summary-discount-row" style="display: none;">
+                            <span>Promo Discount</span>
+                            <span id="summary-discount">-₱0.00</span>
+                        </div>
+
+                        <div class="summary-row">
+                            <span>Standard Delivery</span>
+                            <span id="summary-delivery">₱59.00</span>
+                        </div>
+
+                        <div style="font-size: 0.78rem; color: var(--color-text-light); margin-top: -0.4rem;">
+                            * Free delivery on orders over ₱600 or pickup
+                        </div>
+
+                        <div class="summary-divider"></div>
+
+                        <div class="summary-row total">
+                            <span>Total (PHP)</span>
+                            <span class="total-amount" id="summary-total">₱0.00</span>
+                        </div>
+                    </div>
+
+                    <a href="checkout.html" class="btn btn-primary btn-block" id="proceed-to-checkout-btn">
+                        <span>Proceed to Checkout</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+
+                    <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.82rem; color: var(--color-text-muted);">
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-shield-alt" style="color: var(--color-accent-caramel);"></i>
+                            <span>Secure demo checkout — no real payment needed</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-temperature-low" style="color: var(--color-accent-caramel);"></i>
+                            <span>Thermal-insulated packaging for cold and hot drinks</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- ======================================================================
+         Footer
+         ====================================================================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand-logo">
+                        <div class="brand-icon">
+                            <i class="fas fa-mug-hot"></i>
+                        </div>
+                        <div class="brand-text">Brew & <span>Bites</span></div>
+                    </a>
+                    <p class="footer-desc">
+                        Handcrafted specialty coffee, artisanal bakery treats, and hearty gourmet sandwiches. Elevating your everyday café experience.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="menu.html" class="footer-link">Full Menu</a></li>
+                        <li><a href="cart.html" class="footer-link">View Cart</a></li>
+                        <li><a href="index.html#promotions-section" class="footer-link">Promotions & Codes</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Store Hours</h4>
+                    <div class="hours-list">
+                        <div class="hours-row">
+                            <span class="day">Mon – Fri</span>
+                            <span class="time">6:30 AM – 9:00 PM</span>
+                        </div>
+                        <div class="hours-row">
+                            <span class="day">Saturday</span>
+                            <span class="time">7:00 AM – 10:00 PM</span>
+                        </div>
+                        <div class="hours-row">
+                            <span class="day">Sunday</span>
+                            <span class="time">7:00 AM – 8:30 PM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Demo Disclaimer</h4>
+                    <p style="font-size: 0.85rem; line-height: 1.5; color: var(--color-cream-300); margin-bottom: 1rem;">
+                        Brew & Bites is an interactive front-end demo system. No actual credit card or real food orders will be charged.
+                    </p>
+                    <div class="demo-disclaimer-pill">
+                        <i class="fas fa-info-circle"></i> Front-End Demo System
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Brew & Bites — Online Food Ordering System. All rights reserved.</p>
+                <p>Built with HTML5, CSS3 & Vanilla JavaScript</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <!-- Scripts -->
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
